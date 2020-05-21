@@ -1,3 +1,9 @@
 
+*~
+
+obj/
+bin/
+
+*.vsdoc
+
 /SimpleTIckleChecker/.vs
-/SimpleTIckleChecker/SimpleTIckleChecker/obj
