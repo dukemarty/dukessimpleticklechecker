@@ -23,15 +23,39 @@ namespace SimpleTIckleChecker.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("TestTickles")]
         public string TickleBasePath {
             get {
                 return ((string)(this["TickleBasePath"]));
             }
-            set {
-                this["TickleBasePath"] = value;
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#96212626")]
+        public string InputBackgroundColor {
+            get {
+                return ((string)(this["InputBackgroundColor"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#CC131616")]
+        public string WindowBackgroundColor {
+            get {
+                return ((string)(this["WindowBackgroundColor"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FF00C8C8")]
+        public string TextColor {
+            get {
+                return ((string)(this["TextColor"]));
             }
         }
     }
