@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace SimpleTIckleChecker
 {
-    public class TickleElement
+    public abstract class TickleElement
     {
         #region Constants
 
@@ -22,7 +22,7 @@ namespace SimpleTIckleChecker
 
         public string Name { get; set; }
 
-        public bool IsDirectory { get; set; }
+        public abstract bool IsDirectory { get; }
 
         public DateTime TickleDate { get; set; }
 
@@ -38,15 +38,27 @@ namespace SimpleTIckleChecker
 
             Initialize();
         }
+
+        public bool OpenInformation()
+        {
+            if (!HasInfoFile)
+            {
+                return false;
+            }
+
+            System.Diagnostics.Process.Start(InfoFilePath);
+
+            return true;
+        }
+
+        public abstract bool OpenElement();
+
         #endregion Public interface
 
         #region Private methods
 
         private void Initialize()
         {
-            var fa = File.GetAttributes(ElementPath);
-            IsDirectory = fa.HasFlag(FileAttributes.Directory);
-
             var match = TicklePathRegex.Match(Path.GetFileName(ElementPath));
             TickleDate = DateTime.Parse(match.Groups["tickledate"].Value.Replace('_', '-'));
             Name = match.Groups["ticklename"].Value;
@@ -54,28 +66,7 @@ namespace SimpleTIckleChecker
             HasInfoFile = LoadInformation();
         }
 
-        private bool LoadInformation()
-        {
-            var res = false;
-
-            var infofileName = $"{Path.GetFileNameWithoutExtension(Name)}-Information.md";
-            string infofilePath;
-            if (IsDirectory)
-            {
-                infofilePath = Path.Combine(ElementPath, infofileName);
-            }
-            else
-            {
-                infofilePath = Path.Combine(Path.GetDirectoryName(ElementPath), infofileName);
-            }
-            if (File.Exists(infofilePath))
-            {
-                res = true;
-                InfoFilePath = infofilePath;
-            }
-
-            return res;
-        }
+        protected abstract bool LoadInformation();
 
         #endregion Private methods
     }

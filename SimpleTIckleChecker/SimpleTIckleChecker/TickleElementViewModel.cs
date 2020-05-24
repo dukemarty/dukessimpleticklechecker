@@ -31,7 +31,7 @@ namespace SimpleTIckleChecker
 
         public void OpenDescription()
         {
-            System.Diagnostics.Process.Start(m_element.InfoFilePath);
+            m_element.OpenInformation();
         }
 
         #endregion Public interface

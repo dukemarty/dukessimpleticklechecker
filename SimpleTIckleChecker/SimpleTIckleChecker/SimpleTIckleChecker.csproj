@@ -61,8 +61,11 @@
     </ApplicationDefinition>
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="SimpleTIckleCheckerConfiguration.cs" />
+    <Compile Include="TickleDirectory.cs" />
     <Compile Include="TickleElement.cs" />
+    <Compile Include="TickleElementFactory.cs" />
     <Compile Include="TickleElementViewModel.cs" />
+    <Compile Include="TickleFile.cs" />
     <Compile Include="TickleFolder.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

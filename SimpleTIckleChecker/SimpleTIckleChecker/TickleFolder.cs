@@ -38,7 +38,7 @@ namespace SimpleTIckleChecker
             //var rgx = new Regex(@"\d\d\d\d_\d\d_\d\d-.*");
             foreach (var e in entries.Where(e => TickleElement.TicklePathRegex.IsMatch(Path.GetFileName(e))))
             {
-                var newElem = new TickleElement(Path.GetFullPath(e));
+                var newElem = TickleElementFactory.Construct(Path.GetFullPath(e));
                 Elements.Add(newElem);
             }
         }
@@ -47,7 +47,7 @@ namespace SimpleTIckleChecker
 
         #region Attributes
 
-               
+
         #endregion Attributes
     }
 }
