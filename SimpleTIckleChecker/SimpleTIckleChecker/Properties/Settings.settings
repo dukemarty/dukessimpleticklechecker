@@ -2,9 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SimpleTIckleChecker.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="TickleBasePath" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">TestTickles</Value>
-    </Setting>
     <Setting Name="InputBackgroundColor" Type="System.String" Scope="Application">
       <Value Profile="(Default)">#96212626</Value>
     </Setting>

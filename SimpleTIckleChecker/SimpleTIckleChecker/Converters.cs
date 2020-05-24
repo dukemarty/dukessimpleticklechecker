@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
 
@@ -27,6 +28,21 @@ namespace SimpleTIckleChecker
             var val = (Color)value;
 
             return $"#{val.A:X2}{val.R:X2}{val.G:X2}{val.B:X2}";
+        }
+    }
+
+    public class BoolVisibilityConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var val = (bool)value;
+
+            return val ? Visibility.Visible : Visibility.Hidden;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
         }
     }
 }

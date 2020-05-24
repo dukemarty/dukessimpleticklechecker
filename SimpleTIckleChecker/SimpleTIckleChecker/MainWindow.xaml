@@ -16,11 +16,12 @@
     WindowStyle="None">
     <Window.Resources>
         <local:ColorStringConverter x:Key="Color2String" />
+        <local:BoolVisibilityConverter x:Key="Bool2VisibilityHidden" />
         <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{Binding settings.WindowBackgroundColor, Converter={StaticResource Color2String}}" />
         <SolidColorBrush x:Key="InputBackgroundBrush" Color="{Binding settings.InputBackgroundColor, Converter={StaticResource Color2String}}" />
         <SolidColorBrush x:Key="TextBrush" Color="{Binding settings.TextColor, Converter={StaticResource Color2String}}" />
         <Style TargetType="{x:Type Label}">
-            <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
             <Setter Property="Margin" Value="10" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="FontSize" Value="14" />
@@ -50,13 +51,21 @@
             <Setter Property="BorderBrush" Value="Transparent" />
             <Setter Property="Background" Value="{StaticResource InputBackgroundBrush}" />
         </Style>
-        <BitmapImage x:Key="IconImage" UriSource="Resources/4137172 - blueprint building construction industry.png" />
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{DynamicResource InputBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource WindowBackgroundBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Margin" Value="4,2,4,2" />
+            <Setter Property="Width" Value="20" />
+        </Style>
+        <BitmapImage x:Key="IconImage" UriSource="Resources/4137185 - building construction industry measure.png" />
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="60" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -83,7 +92,6 @@
             VerticalAlignment="Center"
             Content="Simple TIckle Checker"
             FontSize="16" />
-        <!--
         <Label
             Grid.Row="0"
             Grid.Column="2"
@@ -91,6 +99,100 @@
             VerticalAlignment="Center"
             Content="{Binding vm.VersionText}"
             FontSize="10" />
+        <ListView
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Margin="3" x:Name="ActiveTicklesList"
+            HorizontalContentAlignment="Stretch"
+            Background="{StaticResource InputBackgroundBrush}"
+            BorderBrush="Transparent"
+            BorderThickness="0"
+            Foreground="{StaticResource TextBrush}"
+            ItemsSource="{Binding vm.ActiveTicklers}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Content="{Binding Path=Name}" />
+                        <CheckBox
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
+                            IsChecked="{Binding Path=IsDirectory, Mode=OneWay}"
+                            IsEnabled="False">
+                            Directory
+                        </CheckBox>
+                        <Button
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Visibility="{Binding Path=HasInfoFile, Mode=OneWay, Converter={StaticResource Bool2VisibilityHidden}}">
+                            I
+                        </Button>
+                        <Button Grid.Column="3" VerticalAlignment="Center">
+                            O
+                        </Button>
+                        <Button Grid.Column="4" VerticalAlignment="Center">
+                            M
+                        </Button>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Margin="3"
+            Background="{StaticResource InputBackgroundBrush}"
+            Foreground="{StaticResource TextBrush}"
+            ItemsSource="{Binding vm.WaitingTicklers}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid MinWidth="400" HorizontalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Content="{Binding Path=Name}"
+                            Foreground="{StaticResource TextBrush}" />
+                        <CheckBox
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
+                            Foreground="{StaticResource TextBrush}"
+                            IsChecked="{Binding Path=IsDirectory, Mode=OneWay}"
+                            IsEnabled="False">
+                            Directory
+                        </CheckBox>
+                        <Button
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            IsEnabled="{Binding Path=HasInfoFile, Mode=OneWay}">
+                            I
+                        </Button>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!--
         <Label Grid.Row="1" Content="Type" />
         <Label
             Grid.Row="2"

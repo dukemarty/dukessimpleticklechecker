@@ -25,15 +25,6 @@ namespace SimpleTIckleChecker.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("TestTickles")]
-        public string TickleBasePath {
-            get {
-                return ((string)(this["TickleBasePath"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#96212626")]
         public string InputBackgroundColor {
             get {
