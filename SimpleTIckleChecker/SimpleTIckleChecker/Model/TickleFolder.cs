@@ -34,7 +34,7 @@ namespace SimpleTIckleChecker.Model
 
         private void LoadFolder()
         {
-            var entries = Directory.EnumerateFileSystemEntries(TicklePath); // .Select(Path.GetFileName);
+            var entries = Directory.EnumerateFileSystemEntries(TicklePath);
 
             //var rgx = new Regex(@"\d\d\d\d_\d\d_\d\d-.*");
             foreach (var e in entries.Where(e => TickleElement.TicklePathRegex.IsMatch(Path.GetFileName(e))))

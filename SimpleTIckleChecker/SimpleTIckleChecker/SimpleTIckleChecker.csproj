@@ -62,6 +62,7 @@
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="Model\ElementType.cs" />
     <Compile Include="Model\ITickleElement.cs" />
+    <Compile Include="SampleMainViewModel.cs" />
     <Compile Include="SimpleTIckleCheckerConfiguration.cs" />
     <Compile Include="Model\TickleDirectory.cs" />
     <Compile Include="Model\TickleElement.cs" />

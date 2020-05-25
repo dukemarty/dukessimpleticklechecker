@@ -8,12 +8,15 @@
     Title="Simple TIckle Checker"
     Width="800"
     Height="450"
+    d:DataContext="{d:DesignInstance local:SampleDataContext,
+                                     IsDesignTimeCreatable=True}"
     AllowsTransparency="True"
     Background="{DynamicResource WindowBackgroundBrush}"
     FontFamily="Source Code Pro"
     Opacity="1"
     WindowStartupLocation="CenterScreen"
-    WindowStyle="None">
+    WindowStyle="None"
+    mc:Ignorable="d">
     <Window.Resources>
         <local:ColorStringConverter x:Key="Color2String" />
         <local:BoolVisibilityConverter x:Key="Bool2VisibilityHidden" />
