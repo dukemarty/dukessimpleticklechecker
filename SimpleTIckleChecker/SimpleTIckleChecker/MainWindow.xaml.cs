@@ -93,6 +93,9 @@ namespace SimpleTIckleChecker
                 case Key.M:
                     MessageBox.Show("'M' pressed.", "Information", MessageBoxButton.OK);
                     break;
+                case Key.D:
+                    MessageBox.Show("'D' pressed.", "Information", MessageBoxButton.OK);
+                    break;
                 default:
                     // ignore all other keys
                     break;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleTIckleChecker.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace SimpleTIckleChecker
+namespace SimpleTIckleChecker.Model
 {
     public class TickleFolder
     {
@@ -14,7 +15,7 @@ namespace SimpleTIckleChecker
 
         public string TicklePath { get; private set; }
 
-        public List<TickleElement> Elements { get; set; } = new List<TickleElement>();
+        public List<ITickleElement> Elements { get; set; } = new List<ITickleElement>();
 
         #endregion Properties
 

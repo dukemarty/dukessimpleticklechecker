@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
-namespace SimpleTIckleChecker
+namespace SimpleTIckleChecker.Model
 {
-    public abstract class TickleElement
+    public abstract class TickleElement : ITickleElement
     {
         #region Constants
 
@@ -22,7 +22,7 @@ namespace SimpleTIckleChecker
 
         public string Name { get; set; }
 
-        public abstract bool IsDirectory { get; }
+        public abstract ElementType ElementType { get; }
 
         public DateTime TickleDate { get; set; }
 
@@ -52,6 +52,10 @@ namespace SimpleTIckleChecker
         }
 
         public abstract bool OpenElement();
+
+        public abstract bool MoveElement(string newLocation, bool removeInfoFile = false, bool removeTickleDatePrefix = true);
+
+        public abstract bool DeferElement(DateTime newTickleDate);
 
         #endregion Public interface
 

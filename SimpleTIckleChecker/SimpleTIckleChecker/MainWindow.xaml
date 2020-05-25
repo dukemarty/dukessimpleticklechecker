@@ -17,9 +17,11 @@
     <Window.Resources>
         <local:ColorStringConverter x:Key="Color2String" />
         <local:BoolVisibilityConverter x:Key="Bool2VisibilityHidden" />
+        <local:ElementTypeSymbolConverter x:Key="ElementType2Symbol" />
         <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{Binding settings.WindowBackgroundColor, Converter={StaticResource Color2String}}" />
         <SolidColorBrush x:Key="InputBackgroundBrush" Color="{Binding settings.InputBackgroundColor, Converter={StaticResource Color2String}}" />
         <SolidColorBrush x:Key="TextBrush" Color="{Binding settings.TextColor, Converter={StaticResource Color2String}}" />
+        <SolidColorBrush x:Key="SymbolBackgroundBrush" Color="{Binding settings.SymbolBackground, Converter={StaticResource Color2String}}" />
         <Style TargetType="{x:Type Label}">
             <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
             <Setter Property="Margin" Value="10" />
@@ -100,10 +102,11 @@
             Content="{Binding vm.VersionText}"
             FontSize="10" />
         <ListView
+            x:Name="ActiveTicklesList"
             Grid.Row="2"
             Grid.Column="0"
             Grid.ColumnSpan="3"
-            Margin="3" x:Name="ActiveTicklesList"
+            Margin="3"
             HorizontalContentAlignment="Stretch"
             Background="{StaticResource InputBackgroundBrush}"
             BorderBrush="Transparent"
@@ -118,7 +121,8 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
@@ -127,13 +131,19 @@
                             Grid.Column="0"
                             VerticalAlignment="Center"
                             Content="{Binding Path=Name}" />
-                        <CheckBox
+                        <Rectangle
                             Grid.Column="1"
+                            Width="28"
+                            Height="28"
+                            HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            IsChecked="{Binding Path=IsDirectory, Mode=OneWay}"
-                            IsEnabled="False">
-                            Directory
-                        </CheckBox>
+                            Fill="{StaticResource SymbolBackgroundBrush}" />
+                        <Image
+                            Grid.Column="1"
+                            Height="20"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Source="{Binding Path=ElementType, Mode=OneWay, Converter={StaticResource ElementType2Symbol}}" />
                         <Button
                             Grid.Column="2"
                             VerticalAlignment="Center"
@@ -145,6 +155,9 @@
                         </Button>
                         <Button Grid.Column="4" VerticalAlignment="Center">
                             M
+                        </Button>
+                        <Button Grid.Column="5" VerticalAlignment="Center">
+                            D
                         </Button>
                     </Grid>
                 </DataTemplate>

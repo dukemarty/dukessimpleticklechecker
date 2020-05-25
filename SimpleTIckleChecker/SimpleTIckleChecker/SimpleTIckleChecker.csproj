@@ -60,13 +60,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DelegateCommand.cs" />
+    <Compile Include="Model\ElementType.cs" />
+    <Compile Include="Model\ITickleElement.cs" />
     <Compile Include="SimpleTIckleCheckerConfiguration.cs" />
-    <Compile Include="TickleDirectory.cs" />
-    <Compile Include="TickleElement.cs" />
-    <Compile Include="TickleElementFactory.cs" />
-    <Compile Include="TickleElementViewModel.cs" />
-    <Compile Include="TickleFile.cs" />
-    <Compile Include="TickleFolder.cs" />
+    <Compile Include="Model\TickleDirectory.cs" />
+    <Compile Include="Model\TickleElement.cs" />
+    <Compile Include="Model\TickleElementFactory.cs" />
+    <Compile Include="UI\TickleElementViewModel.cs" />
+    <Compile Include="Model\TickleFile.cs" />
+    <Compile Include="Model\TickleFolder.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -113,6 +115,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\4137185 - building construction industry measure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\2674093 - essential folder object ui web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\2674100 - document essential object ui web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\2674058 - bookmark essential object ui web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\2674089 - emotion essential object sad ui web.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

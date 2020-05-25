@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace SimpleTIckleChecker
 {
@@ -38,6 +39,45 @@ namespace SimpleTIckleChecker
             var val = (bool)value;
 
             return val ? Visibility.Visible : Visibility.Hidden;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class ElementTypeSymbolConverter : IValueConverter
+    {
+        private static readonly BitmapImage SymbolUnknown = new BitmapImage(new Uri("pack://application:,,,/SimpleTIckleChecker;component/Resources/2674089 - emotion essential object sad ui web.png"));
+        private static readonly BitmapImage SymbolFile = new BitmapImage(new Uri("pack://application:,,,/SimpleTIckleChecker;component/Resources/2674100 - document essential object ui web.png"));
+        private static readonly BitmapImage SymbolDirectory = new BitmapImage(new Uri("pack://application:,,,/SimpleTIckleChecker;component/Resources/2674093 - essential folder object ui web.png"));
+        private static readonly BitmapImage SymbolLink = new BitmapImage(new Uri("pack://application:,,,/SimpleTIckleChecker;component/Resources/2674058 - bookmark essential object ui web.png"));
+
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var val = (ElementType)value;
+
+            object res = null;
+            switch (val)
+            {
+                case ElementType.File:
+                    res = SymbolFile;
+                    break;
+                case ElementType.Directory:
+                    res = SymbolDirectory;
+                    break;
+                case ElementType.Link:
+                    res = SymbolLink;
+                    break;
+                case ElementType.Unknown:
+                    res = SymbolUnknown;
+                    break;
+                default:
+                    throw new InvalidOperationException();
+            }
+
+            return res;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

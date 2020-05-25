@@ -49,5 +49,14 @@ namespace SimpleTIckleChecker.Properties {
                 return ((string)(this["TextColor"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#CC80A33A")]
+        public string SymbolBackground {
+            get {
+                return ((string)(this["SymbolBackground"]));
+            }
+        }
     }
 }

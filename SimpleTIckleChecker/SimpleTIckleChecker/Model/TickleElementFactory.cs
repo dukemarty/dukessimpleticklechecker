@@ -5,18 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleTIckleChecker
+namespace SimpleTIckleChecker.Model
 {
     public class TickleElementFactory
     {
         #region Public interface
 
-        public static TickleElement Construct(string path)
+        public static ITickleElement Construct(string path)
         {
             var fa = File.GetAttributes(path);
             var isDirectory = fa.HasFlag(FileAttributes.Directory);
 
-            TickleElement res;
+            ITickleElement res;
             if (isDirectory)
             {
                 res = new TickleDirectory(path);

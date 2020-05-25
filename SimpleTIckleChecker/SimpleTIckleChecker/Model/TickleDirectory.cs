@@ -1,16 +1,18 @@
-﻿using System.IO;
+﻿using SimpleTIckleChecker.Model;
+using System;
+using System.IO;
 
 namespace SimpleTIckleChecker
 {
-    public class TickleFile : TickleElement
+    public class TickleDirectory : TickleElement
     {
         #region Properties
-        public override bool IsDirectory => false;
+        public override ElementType ElementType => ElementType.Directory;
         #endregion Properties
 
         #region Public interface
 
-        public TickleFile(string path) : base(path)
+        public TickleDirectory(string path) : base(path)
         {
 
         }
@@ -24,6 +26,15 @@ namespace SimpleTIckleChecker
             return true;
         }
 
+        public override bool MoveElement(string newLocation, bool removeInfoFile = false, bool removeTickleDatePrefix = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool DeferElement(DateTime newTickleDate)
+        {
+            throw new NotImplementedException();
+        }
         #endregion Public interface
 
         #region Private methods
@@ -32,7 +43,7 @@ namespace SimpleTIckleChecker
             var res = false;
 
             var infofileName = $"{Path.GetFileNameWithoutExtension(Name)}-Information.md";
-            var infofilePath = Path.Combine(Path.GetDirectoryName(ElementPath), infofileName);
+            var infofilePath = Path.Combine(ElementPath, infofileName);
 
             if (File.Exists(infofilePath))
             {
@@ -42,6 +53,7 @@ namespace SimpleTIckleChecker
 
             return res;
         }
+
         #endregion Private methods
     }
 }

@@ -1,4 +1,5 @@
-﻿using SimpleTIckleChecker.Properties;
+﻿using SimpleTIckleChecker.Model;
+using SimpleTIckleChecker.Properties;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

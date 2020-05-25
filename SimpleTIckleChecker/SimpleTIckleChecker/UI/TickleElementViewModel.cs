@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleTIckleChecker.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace SimpleTIckleChecker
 
         public string Name => m_element.Name;
 
-        public bool IsDirectory => m_element.IsDirectory;
+        public ElementType ElementType => m_element.ElementType;
 
         public bool HasInfoFile => m_element.HasInfoFile;
 
@@ -24,7 +25,7 @@ namespace SimpleTIckleChecker
 
         #region Public interface
 
-        public TickleElementViewModel(TickleElement element)
+        public TickleElementViewModel(ITickleElement element)
         {
             m_element = element;
         }
@@ -38,7 +39,7 @@ namespace SimpleTIckleChecker
 
         #region Attributes
 
-        private TickleElement m_element;
+        private ITickleElement m_element;
 
         #endregion Attributes
     }

@@ -12,6 +12,7 @@ namespace SimpleTIckleChecker
         private static readonly SimpleTIckleCheckerConfiguration DefaultSettings = new SimpleTIckleCheckerConfiguration
         {
             TicklePath = "TestTickles",
+            DefaultMoveToPath = "",
         };
 
         #endregion Constants
@@ -20,6 +21,9 @@ namespace SimpleTIckleChecker
 
         [DataMember]
         public string TicklePath { get; set; }
+
+        [DataMember]
+        public string DefaultMoveToPath { get; set; }
         #endregion Properties
 
         #region Public interface
