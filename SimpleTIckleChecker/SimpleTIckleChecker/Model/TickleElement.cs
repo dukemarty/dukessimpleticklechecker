@@ -15,6 +15,7 @@ namespace SimpleTIckleChecker.Model
         private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
         public static readonly Regex TicklePathRegex = new Regex(@"(?<tickledate>\d\d\d\d_\d\d_\d\d)-(?<ticklename>.*)");
+        public static readonly Regex InfoFileRegex = new Regex(@"(?<tickledate>\d\d\d\d_\d\d_\d\d)-(?<ticklebasename>.*)-Information.md");
 
         #endregion Constants
 

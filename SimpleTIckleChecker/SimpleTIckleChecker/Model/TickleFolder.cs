@@ -40,12 +40,19 @@ namespace SimpleTIckleChecker.Model
         {
             var entries = Directory.EnumerateFileSystemEntries(TicklePath);
 
-            //var rgx = new Regex(@"\d\d\d\d_\d\d_\d\d-.*");
-            foreach (var e in entries.Where(e => TickleElement.TicklePathRegex.IsMatch(Path.GetFileName(e))))
+            // 1st load files and directories
+            foreach (var e in entries.Where(IsTickleEntry))
             {
                 var newElem = TickleElementFactory.Construct(Path.GetFullPath(e));
                 Elements.Add(newElem);
             }
+        }
+
+        private bool IsTickleEntry(string path)
+        {
+            var filename = Path.GetFileName(path);
+
+            return TickleElement.TicklePathRegex.IsMatch(filename) && !TickleElement.InfoFileRegex.IsMatch(filename);
         }
 
         #endregion Private methods

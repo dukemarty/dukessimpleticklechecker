@@ -67,7 +67,7 @@ namespace SimpleTIckleChecker.Model
         {
             var res = false;
 
-            var infofileName = $"{Path.GetFileNameWithoutExtension(Name)}-Information.md";
+            var infofileName = $"{Path.GetFileNameWithoutExtension(ElementPath)}-Information.md";
             var infofilePath = Path.Combine(Path.GetDirectoryName(ElementPath), infofileName);
 
             if (File.Exists(infofilePath))
