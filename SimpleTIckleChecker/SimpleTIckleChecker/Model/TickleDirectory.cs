@@ -6,6 +6,11 @@ namespace SimpleTIckleChecker
 {
     public class TickleDirectory : TickleElement
     {
+        #region Constants
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
+
+        #endregion Constants
+
         #region Properties
         public override ElementType ElementType => ElementType.Directory;
         #endregion Properties

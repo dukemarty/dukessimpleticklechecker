@@ -123,6 +123,7 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
@@ -133,33 +134,37 @@
                         <Label
                             Grid.Column="0"
                             VerticalAlignment="Center"
+                            Content="{Binding Path=TickleDate}" />
+                        <Label
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
                             Content="{Binding Path=Name}" />
                         <Rectangle
-                            Grid.Column="1"
+                            Grid.Column="2"
                             Width="28"
                             Height="28"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Fill="{StaticResource SymbolBackgroundBrush}" />
                         <Image
-                            Grid.Column="1"
+                            Grid.Column="2"
                             Height="20"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Source="{Binding Path=ElementType, Mode=OneWay, Converter={StaticResource ElementType2Symbol}}" />
                         <Button
-                            Grid.Column="2"
+                            Grid.Column="3"
                             VerticalAlignment="Center"
                             Visibility="{Binding Path=HasInfoFile, Mode=OneWay, Converter={StaticResource Bool2VisibilityHidden}}">
                             I
                         </Button>
-                        <Button Grid.Column="3" VerticalAlignment="Center">
+                        <Button Grid.Column="4" VerticalAlignment="Center">
                             O
                         </Button>
-                        <Button Grid.Column="4" VerticalAlignment="Center">
+                        <Button Grid.Column="5" VerticalAlignment="Center">
                             M
                         </Button>
-                        <Button Grid.Column="5" VerticalAlignment="Center">
+                        <Button Grid.Column="6" VerticalAlignment="Center">
                             D
                         </Button>
                     </Grid>

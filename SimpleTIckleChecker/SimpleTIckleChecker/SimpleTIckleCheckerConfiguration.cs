@@ -9,6 +9,8 @@ namespace SimpleTIckleChecker
     {
         #region Constants
 
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
+
         private static readonly SimpleTIckleCheckerConfiguration DefaultSettings = new SimpleTIckleCheckerConfiguration
         {
             TicklePath = "TestTickles",
@@ -44,7 +46,7 @@ namespace SimpleTIckleChecker
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Caught exception when trying to write xml: {0}\n{1}", ex.Message, ex.StackTrace);
+                Logger.Error(ex, $"Caught exception when trying to write xml: {ex.Message}");
             }
         }
 
@@ -60,7 +62,7 @@ namespace SimpleTIckleChecker
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Caught exception when trying to read xml: {0}\n{1}", ex.Message, ex.StackTrace);
+                Logger.Error(ex, $"Caught exception when trying to read xml: {ex.Message}");
             }
 
             if (settings == null)

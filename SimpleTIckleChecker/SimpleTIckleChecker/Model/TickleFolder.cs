@@ -11,6 +11,10 @@ namespace SimpleTIckleChecker.Model
 {
     public class TickleFolder
     {
+        #region Constants
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
+        #endregion Constants
+
         #region Properties
 
         public string TicklePath { get; private set; }

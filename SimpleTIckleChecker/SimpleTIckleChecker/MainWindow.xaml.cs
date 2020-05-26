@@ -26,11 +26,9 @@ namespace SimpleTIckleChecker
             InitializeComponent();
 
             vm = new MainWindowViewModel(this);
-            var sampleVm = new SampleMainViewModel();
             DataContext = new
             {
-                //vm,
-                sampleVm,
+                vm,
                 settings = Settings.Default
             };
 

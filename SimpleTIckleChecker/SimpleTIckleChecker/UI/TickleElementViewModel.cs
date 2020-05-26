@@ -12,6 +12,8 @@ namespace SimpleTIckleChecker
     {
         #region Properties
 
+        public string TickleDate => m_element.TickleDate.ToString("yyyy-MM-dd");
+
         public string Name => m_element.Name;
 
         public ElementType ElementType => m_element.ElementType;

@@ -52,7 +52,7 @@ namespace SimpleTIckleChecker.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#CC80A33A")]
+        [global::System.Configuration.DefaultSettingValueAttribute("#CC00B0B0")]
         public string SymbolBackground {
             get {
                 return ((string)(this["SymbolBackground"]));

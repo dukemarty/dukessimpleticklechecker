@@ -9,6 +9,11 @@ namespace SimpleTIckleChecker.Model
 {
     public class TickleElementFactory
     {
+        #region Constants
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
+
+        #endregion Constants
+
         #region Public interface
 
         public static ITickleElement Construct(string path)

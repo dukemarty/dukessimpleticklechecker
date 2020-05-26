@@ -12,7 +12,7 @@
       <Value Profile="(Default)">#FF00C8C8</Value>
     </Setting>
     <Setting Name="SymbolBackground" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">#CC80A33A</Value>
+      <Value Profile="(Default)">#CC00B0B0</Value>
     </Setting>
   </Settings>
 </SettingsFile>
