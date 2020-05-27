@@ -74,6 +74,7 @@
     <Compile Include="Model\TickleDirectory.cs" />
     <Compile Include="Model\TickleElement.cs" />
     <Compile Include="Model\TickleElementFactory.cs" />
+    <Compile Include="TicklePathUtils.cs" />
     <Compile Include="UI\TickleElementViewModel.cs" />
     <Compile Include="Model\TickleFile.cs" />
     <Compile Include="Model\TickleFolder.cs" />

@@ -1,10 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace SimpleTIckleChecker.Model
 {
     public class TickleFile : TickleElement
     {
+        #region Internal types
+
+        private class MovePair
+        {
+            public string Source { get; set; }
+            public string Destination { get; set; }
+
+            public MovePair(string source, string destination)
+            {
+                Source = source;
+                Destination = destination;
+            }
+        }
+
+        #endregion Internal types
+
         #region Constants
         private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         #endregion Constants
@@ -36,25 +53,26 @@ namespace SimpleTIckleChecker.Model
 
         public override bool DeferElement(DateTime newTickleDate)
         {
-            var sourceFile = ElementPath;
-            var destinationPath = Path.GetDirectoryName(sourceFile);
-            var destinationName = $"{newTickleDate.ToString("yyyy_MM_dd")}-{Name}";
-            var destinationFile = Path.Combine(destinationPath, destinationName) ;
+            var moves = new List<MovePair>();
 
-            bool res;
-            try
-            {
-                File.Move(sourceFile, destinationFile);
-                res = true;
-            }
-            catch (Exception ex)
-            {
-                res = false;
-            }
+            moves.Add(new MovePair(ElementPath, ElementPath.ReplaceTickleDate(newTickleDate)));
 
             if (HasInfoFile)
             {
-                sourceFile = InfoFilePath;
+                moves.Add(new MovePair(InfoFilePath, InfoFilePath.ReplaceTickleDate(newTickleDate)));
+            }
+
+            var res = true;
+            foreach (var mp in moves)
+            {
+                try
+                {
+                    File.Move(mp.Source, mp.Destination);
+                }
+                catch (Exception ex)
+                {
+                    res = false;
+                }
             }
 
             return res;

@@ -78,7 +78,8 @@ namespace SimpleTIckleChecker
             switch (e.Key)
             {
                 case Key.I:
-                    if (ActiveTicklesList.SelectedIndex > -1 && (ActiveTicklesList.SelectedItem as TickleElementViewModel).HasInfoFile)
+                    if (ActiveTicklesList.SelectedIndex == -1) { return; }
+                    if ((ActiveTicklesList.SelectedItem as TickleElementViewModel).HasInfoFile)
                     {
                         (ActiveTicklesList.SelectedItem as TickleElementViewModel).OpenDescription();
                     }
@@ -88,12 +89,16 @@ namespace SimpleTIckleChecker
                     }
                     break;
                 case Key.O:
-                    MessageBox.Show("'O' pressed.", "Information", MessageBoxButton.OK);
+                    if (ActiveTicklesList.SelectedIndex == -1) { return; }
+                    (ActiveTicklesList.SelectedItem as TickleElementViewModel).OpenElement();
                     break;
                 case Key.M:
+                    if (ActiveTicklesList.SelectedIndex == -1) { return; }
                     MessageBox.Show("'M' pressed.", "Information", MessageBoxButton.OK);
                     break;
                 case Key.D:
+                    if (ActiveTicklesList.SelectedIndex == -1) { return; }
+                    //(ActiveTicklesList.SelectedItem as TickleElementViewModel).
                     MessageBox.Show("'D' pressed.", "Information", MessageBoxButton.OK);
                     break;
                 default:

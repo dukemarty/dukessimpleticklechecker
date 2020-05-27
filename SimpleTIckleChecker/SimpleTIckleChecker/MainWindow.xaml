@@ -24,6 +24,7 @@
         <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{Binding settings.WindowBackgroundColor, Converter={StaticResource Color2String}}" />
         <SolidColorBrush x:Key="InputBackgroundBrush" Color="{Binding settings.InputBackgroundColor, Converter={StaticResource Color2String}}" />
         <SolidColorBrush x:Key="TextBrush" Color="{Binding settings.TextColor, Converter={StaticResource Color2String}}" />
+        <SolidColorBrush x:Key="BoldTextBrush" Color="{Binding settings.BoldTextColor, Converter={StaticResource Color2String}}" />
         <SolidColorBrush x:Key="SymbolBackgroundBrush" Color="{Binding settings.SymbolBackground, Converter={StaticResource Color2String}}" />
         <Style TargetType="{x:Type Label}">
             <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
@@ -115,7 +116,8 @@
             BorderBrush="Transparent"
             BorderThickness="0"
             Foreground="{StaticResource TextBrush}"
-            ItemsSource="{Binding vm.ActiveTicklers}">
+            ItemsSource="{Binding vm.ActiveTicklers}"
+            SelectedIndex="0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid HorizontalAlignment="Stretch">
@@ -138,7 +140,8 @@
                         <Label
                             Grid.Column="1"
                             VerticalAlignment="Center"
-                            Content="{Binding Path=Name}" />
+                            Content="{Binding Path=Name}"
+                            Foreground="{StaticResource BoldTextBrush}" />
                         <Rectangle
                             Grid.Column="2"
                             Width="28"

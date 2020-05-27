@@ -24,7 +24,7 @@ namespace SimpleTIckleChecker
 
         public override bool OpenElement()
         {
-            if (!File.Exists(ElementPath)) { return false; }
+            if (!Directory.Exists(ElementPath)) { return false; }
 
             System.Diagnostics.Process.Start(ElementPath);
 

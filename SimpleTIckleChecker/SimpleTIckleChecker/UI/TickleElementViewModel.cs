@@ -37,6 +37,11 @@ namespace SimpleTIckleChecker
             m_element.OpenInformation();
         }
 
+        public void OpenElement()
+        {
+            m_element.OpenElement();
+        }
+
         #endregion Public interface
 
         #region Attributes
