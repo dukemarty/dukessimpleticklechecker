@@ -67,5 +67,14 @@ namespace SimpleTIckleChecker.Properties {
                 return ((string)(this["BoldTextColor"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FFA4F600")]
+        public string HighlightTextColor {
+            get {
+                return ((string)(this["HighlightTextColor"]));
+            }
+        }
     }
 }

@@ -17,5 +17,8 @@
     <Setting Name="BoldTextColor" Type="System.String" Scope="Application">
       <Value Profile="(Default)">#FF00E400</Value>
     </Setting>
+    <Setting Name="HighlightTextColor" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">#FFA4F600</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

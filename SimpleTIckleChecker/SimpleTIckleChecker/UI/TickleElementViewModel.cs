@@ -42,6 +42,11 @@ namespace SimpleTIckleChecker
             m_element.OpenElement();
         }
 
+        public void DeferElement()
+        {
+            //m_element.DeferElement();
+        }
+
         #endregion Public interface
 
         #region Attributes
