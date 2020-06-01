@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace SimpleTIckleChecker
@@ -42,9 +43,21 @@ namespace SimpleTIckleChecker
             m_element.OpenElement();
         }
 
-        public void DeferElement()
+        public bool DeferElement(Window owner)
         {
-            //m_element.DeferElement();
+            var selector = new UI.TickleDateSelection(Name, TickleDate);
+
+            owner.IsEnabled = false;
+            var dialogRes = selector.ShowDialog() ?? false;
+            if (!dialogRes) {
+                owner.IsEnabled = false;
+                return  ; }
+
+            var newDate = DateTime.Now;
+
+            m_element.DeferElement(newDate);
+
+            owner.IsEnabled = false;
         }
 
         #endregion Public interface

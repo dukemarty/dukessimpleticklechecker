@@ -34,6 +34,7 @@ namespace SimpleTIckleChecker
         public SimpleTIckleCheckerConfiguration(SimpleTIckleCheckerConfiguration orig)
         {
             TicklePath = orig.TicklePath;
+            DefaultMoveToPath = orig.DefaultMoveToPath;
         }
 
         public void StoreToFile(string filename)

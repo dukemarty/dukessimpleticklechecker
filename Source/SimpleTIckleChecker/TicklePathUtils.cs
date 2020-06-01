@@ -11,7 +11,7 @@ namespace SimpleTIckleChecker
     public static class TicklePathUtils
     {
         #region Constants
-        private static readonly Regex FilenameSplitRegex = new Regex(@"^(?<tickledata>\d\d_\d\d_\d\d)(-)(?<baseName>.*)$");
+        private static readonly Regex FilenameSplitRegex = new Regex(@"^(?<tickledata>\d\d\d\d_\d\d_\d\d)(-)(?<baseName>.*)$");
 
         #endregion Constants
 

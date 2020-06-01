@@ -6,5 +6,5 @@ bin/
 
 *.vsdoc
 
-/SimpleTIckleChecker/.vs
-/SimpleTIckleChecker/packages
+/Source/.vs
+/Source/packages

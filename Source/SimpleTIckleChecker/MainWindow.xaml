@@ -97,7 +97,7 @@
             Margin="0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Content="Simple TIckle Checker"
+            Content="Duke's Simple TIckle Checker"
             FontSize="16" />
         <Label
             Grid.Row="0"

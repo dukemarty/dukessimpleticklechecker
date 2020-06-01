@@ -98,7 +98,7 @@ namespace SimpleTIckleChecker
                     break;
                 case Key.D:
                     if (ActiveTicklesList.SelectedIndex == -1) { return; }
-                    //(ActiveTicklesList.SelectedItem as TickleElementViewModel).
+                    (ActiveTicklesList.SelectedItem as TickleElementViewModel).DeferElement(this);  
                     MessageBox.Show("'D' pressed.", "Information", MessageBoxButton.OK);
                     break;
                 default:

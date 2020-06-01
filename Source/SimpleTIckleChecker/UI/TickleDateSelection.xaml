@@ -1,0 +1,107 @@
+﻿<Window
+    x:Class="SimpleTIckleChecker.UI.TickleDateSelection"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SimpleTIckleChecker.UI"
+    xmlns:local2="clr-namespace:SimpleTIckleChecker"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="TickleDateSelection"
+    Width="500"
+    Height="300"
+    AllowsTransparency="TRue"
+    Background="{DynamicResource WindowBackgroundBrush}"
+    FontFamily="Source Code Pro"
+    Opacity="1"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <local2:ColorStringConverter x:Key="Color2String" />
+        <local2:BoolVisibilityConverter x:Key="Bool2VisibilityHidden" />
+        <local2:ElementTypeSymbolConverter x:Key="ElementType2Symbol" />
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{Binding settings.WindowBackgroundColor, Converter={StaticResource Color2String}}" />
+        <SolidColorBrush x:Key="InputBackgroundBrush" Color="{Binding settings.InputBackgroundColor, Converter={StaticResource Color2String}}" />
+        <SolidColorBrush x:Key="TextBrush" Color="{Binding settings.TextColor, Converter={StaticResource Color2String}}" />
+        <SolidColorBrush x:Key="BoldTextBrush" Color="{Binding settings.BoldTextColor, Converter={StaticResource Color2String}}" />
+        <SolidColorBrush x:Key="SymbolBackgroundBrush" Color="{Binding settings.SymbolBackground, Converter={StaticResource Color2String}}" />
+        <SolidColorBrush x:Key="HighlightTextBrush" Color="{Binding settings.HighlightTextColor, Converter={StaticResource Color2String}}" />
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+            <Setter Property="Background" Value="{StaticResource InputBackgroundBrush}" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+            <Setter Property="FontWeight" Value="DemiBold" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="{StaticResource InputBackgroundBrush}" />
+        </Style>
+        <Style TargetType="{x:Type ComboBoxItem}">
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="{StaticResource InputBackgroundBrush}" />
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{DynamicResource InputBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource WindowBackgroundBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Margin" Value="4,2,4,2" />
+            <Setter Property="Width" Value="20" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0">Select a new tickle date for:</Label>
+        <Label 
+            Grid.Row="1"
+            Content="{Binding vm.ElementName}"
+            Foreground="{StaticResource BoldTextBrush}" />
+        <StackPanel
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Orientation="Horizontal" />
+        <!--<DatePicker
+            Grid.Row="1"
+            Grid.Column="0"
+            IsDropDownOpen="True"
+            IsTodayHighlighted="True" />-->
+        <DatePickerTextBox
+            Grid.Row="2"
+            Grid.Column="0"
+            Margin="3,6,3,3"
+            VerticalAlignment="Top"
+            Text="{Binding vm.ChosenTickleDate}" />
+        <Calendar
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="3" />
+    </Grid>
+</Window>
