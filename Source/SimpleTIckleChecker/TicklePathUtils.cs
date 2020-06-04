@@ -27,7 +27,7 @@ namespace SimpleTIckleChecker
                 return null;
             }
 
-            var newFilename = $"{newDate.ToString("yyyy_MM_dd-")}-{split.Groups["baseName"]}";
+            var newFilename = $"{newDate.ToString("yyyy_MM_dd")}-{split.Groups["baseName"]}";
 
             return Path.Combine(basePath, newFilename);
         }
