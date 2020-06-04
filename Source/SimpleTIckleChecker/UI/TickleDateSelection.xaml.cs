@@ -21,14 +21,16 @@ namespace SimpleTIckleChecker.UI
     public partial class TickleDateSelection : Window
     {
         public string ElementName { get; set; }
-        public string ChosenTickleDate { get; set; }
+        public string ChosenTickleDateString { get; set; }
+        public DateTime ChosenTickleDate { get; set; }
 
         public TickleDateSelection(string element, string oldTickleDate)
         {
             InitializeComponent();
 
             ElementName = element;
-            ChosenTickleDate = oldTickleDate;
+            ChosenTickleDateString = oldTickleDate;
+            ChosenTickleDate = DateTime.Parse(oldTickleDate);
 
             DataContext = new
             {

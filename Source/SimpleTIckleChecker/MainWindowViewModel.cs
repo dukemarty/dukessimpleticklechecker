@@ -33,10 +33,22 @@ namespace SimpleTIckleChecker
 
             m_tickleFolder = new TickleFolder(m_settings.TicklePath);
 
+            //var today = DateTime.Now;
+            //ActiveTicklers = new ObservableCollection<TickleElementViewModel>(m_tickleFolder.Elements.Where(e => e.TickleDate <= today).Select(te => new TickleElementViewModel(te)));
+            //WaitingTicklers = new ObservableCollection<TickleElementViewModel>(m_tickleFolder.Elements.Where(e => e.TickleDate > today).Select(te => new TickleElementViewModel(te)));
+            UpdateTickles();
+        }
+
+        public void UpdateTickles()
+        {
             var today = DateTime.Now;
             ActiveTicklers = new ObservableCollection<TickleElementViewModel>(m_tickleFolder.Elements.Where(e => e.TickleDate <= today).Select(te => new TickleElementViewModel(te)));
             WaitingTicklers = new ObservableCollection<TickleElementViewModel>(m_tickleFolder.Elements.Where(e => e.TickleDate > today).Select(te => new TickleElementViewModel(te)));
+
+            NotifyPropertyChanged(nameof(ActiveTicklers));
+            NotifyPropertyChanged(nameof(WaitingTicklers));
         }
+
 
         #region Private methods
 

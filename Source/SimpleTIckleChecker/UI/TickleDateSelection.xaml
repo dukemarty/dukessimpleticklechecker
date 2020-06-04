@@ -78,30 +78,41 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0">Select a new tickle date for:</Label>
-        <Label 
+        <StackPanel
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Orientation="Horizontal">
+            <Label>Element:</Label>
+            <Label Content="{Binding vm.ElementName}" Foreground="{StaticResource BoldTextBrush}" />
+        </StackPanel>
+        <Label
             Grid.Row="1"
-            Content="{Binding vm.ElementName}"
-            Foreground="{StaticResource BoldTextBrush}" />
+            Grid.Column="0"
+            Grid.ColumnSpan="2">
+            Select a new tickle date for:
+        </Label>
         <StackPanel
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="3"
             Orientation="Horizontal" />
-        <!--<DatePicker
-            Grid.Row="1"
+        <DatePicker
+            Grid.Row="2"
             Grid.Column="0"
             IsDropDownOpen="True"
-            IsTodayHighlighted="True" />-->
-        <DatePickerTextBox
+            IsTodayHighlighted="True"
+            SelectedDate="{Binding vm.ChosenTickleDate}" />
+        <!--<DatePickerTextBox
             Grid.Row="2"
             Grid.Column="0"
             Margin="3,6,3,3"
             VerticalAlignment="Top"
-            Text="{Binding vm.ChosenTickleDate}" />
+            Text="{Binding vm.ChosenTickleDateString}" />
         <Calendar
             Grid.Row="2"
             Grid.Column="1"
-            Margin="3" />
+            Margin="3"
+            SelectedDate="{Binding vm.ChosenTickleDate}" />-->
     </Grid>
 </Window>

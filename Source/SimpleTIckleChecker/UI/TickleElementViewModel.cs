@@ -49,15 +49,19 @@ namespace SimpleTIckleChecker
 
             owner.IsEnabled = false;
             var dialogRes = selector.ShowDialog() ?? false;
-            if (!dialogRes) {
-                owner.IsEnabled = false;
-                return  ; }
+            if (!dialogRes)
+            {
+                owner.IsEnabled = true;
+                return false;
+            }
 
-            var newDate = DateTime.Now;
+            var newDate = selector.ChosenTickleDate;
 
             m_element.DeferElement(newDate);
 
-            owner.IsEnabled = false;
+            owner.IsEnabled = true;
+
+            return true;
         }
 
         #endregion Public interface
