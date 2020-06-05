@@ -93,6 +93,7 @@ namespace SimpleTIckleChecker
         public string WindowBackgroundColor { get; set; } = "#CC131616";
         public string TextColor { get; set; } = "#FF00C8C8";
         public string SymbolBackground { get; set; } = "#CC80A33A";
+        public string BoldTextColor { get; set; } = "#FF00E400";
     }
 
     internal class SampleDataContext

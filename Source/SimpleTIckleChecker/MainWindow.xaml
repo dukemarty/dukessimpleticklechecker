@@ -127,9 +127,6 @@
             <TabItem Header="Active">
                 <ListView
                     x:Name="ActiveTicklesList"
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="3"
                     Margin="3"
                     HorizontalContentAlignment="Stretch"
                     Background="{StaticResource InputBackgroundBrush}"
@@ -197,42 +194,65 @@
             </TabItem>
             <TabItem Header="Waiting">
                 <ListView
-                    Grid.Row="3"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="3"
                     Margin="3"
+                    HorizontalContentAlignment="Stretch"
                     Background="{StaticResource InputBackgroundBrush}"
+                    BorderBrush="Transparent"
+                    BorderThickness="0"
                     Foreground="{StaticResource TextBrush}"
-                    ItemsSource="{Binding vm.WaitingTicklers}">
+                    ItemsSource="{Binding vm.WaitingTicklers}"
+                    SelectedIndex="0">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid MinWidth="400" HorizontalAlignment="Stretch">
+                            <Grid HorizontalAlignment="Stretch">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120" />
                                     <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <Label
                                     Grid.Column="0"
                                     VerticalAlignment="Center"
-                                    Content="{Binding Path=Name}"
-                                    Foreground="{StaticResource TextBrush}" />
-                                <CheckBox
+                                    Content="{Binding Path=TickleDate}" />
+                                <Label
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
-                                    Foreground="{StaticResource TextBrush}"
-                                    IsChecked="{Binding Path=IsDirectory, Mode=OneWay}"
-                                    IsEnabled="False">
-                                    Directory
-                                </CheckBox>
-                                <Button
+                                    Content="{Binding Path=Name}"
+                                    Foreground="{StaticResource BoldTextBrush}" />
+                                <Rectangle
                                     Grid.Column="2"
+                                    Width="28"
+                                    Height="28"
+                                    HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    IsEnabled="{Binding Path=HasInfoFile, Mode=OneWay}">
+                                    Fill="{StaticResource SymbolBackgroundBrush}" />
+                                <Image
+                                    Grid.Column="2"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{Binding Path=ElementType, Mode=OneWay, Converter={StaticResource ElementType2Symbol}}" />
+                                <Button
+                                    Grid.Column="3"
+                                    VerticalAlignment="Center"
+                                    Visibility="{Binding Path=HasInfoFile, Mode=OneWay, Converter={StaticResource Bool2VisibilityHidden}}">
                                     I
+                                </Button>
+                                <Button Grid.Column="4" VerticalAlignment="Center">
+                                    O
+                                </Button>
+                                <Button Grid.Column="5" VerticalAlignment="Center">
+                                    M
+                                </Button>
+                                <Button Grid.Column="6" VerticalAlignment="Center">
+                                    D
                                 </Button>
                             </Grid>
                         </DataTemplate>
