@@ -29,6 +29,8 @@ namespace SimpleTIckleChecker.Model
 
         bool DeferElement(DateTime newTickleDate);
 
+        bool RemoveElement();
+
         #endregion Methods
     }
 }

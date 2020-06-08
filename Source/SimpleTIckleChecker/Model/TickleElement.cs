@@ -60,6 +60,8 @@ namespace SimpleTIckleChecker.Model
 
         public abstract bool DeferElement(DateTime newTickleDate);
 
+        public abstract bool RemoveElement();
+
         #endregion Public interface
 
         #region Private methods

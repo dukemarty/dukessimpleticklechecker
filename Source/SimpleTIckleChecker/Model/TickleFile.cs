@@ -71,8 +71,26 @@ namespace SimpleTIckleChecker.Model
                 }
                 catch (Exception ex)
                 {
+                    Logger.Error(ex, $"Exception occured when trying to perform tickle file moving ({mp.Source} -> {mp.Destination}).");
                     res = false;
                 }
+            }
+
+            return res;
+        }
+
+        public override bool RemoveElement()
+        {
+            var res = true;
+
+            try
+            {
+                File.Delete(ElementPath);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex, $"Exception occured when trying to delete tickle file '{ElementPath}'.");
+                res = false;
             }
 
             return res;

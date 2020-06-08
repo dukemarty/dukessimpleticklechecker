@@ -64,6 +64,15 @@ namespace SimpleTIckleChecker
             return true;
         }
 
+        public bool RemoveElement(Window owner)
+        {
+            var resConfirmRemove = MessageBox.Show($"Do you really want to remove tickle '{Name}' permanently?", "Confirm deleting", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
+            if (resConfirmRemove != MessageBoxResult.Yes) { return false; }
+
+            m_element.RemoveElement();
+
+            return true;
+        }
         #endregion Public interface
 
         #region Attributes

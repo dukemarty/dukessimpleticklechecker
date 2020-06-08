@@ -100,7 +100,11 @@ namespace SimpleTIckleChecker
                     if (ActiveTicklesList.SelectedIndex == -1) { return; }
                     (ActiveTicklesList.SelectedItem as TickleElementViewModel).DeferElement(this);
                     vm.UpdateTickles();
-                    MessageBox.Show("'D' pressed.", "Information", MessageBoxButton.OK);
+                    break;
+                case Key.R:
+                    if (ActiveTicklesList.SelectedIndex == -1) { return; }
+                    (ActiveTicklesList.SelectedItem as TickleElementViewModel).RemoveElement(this);
+                    vm.UpdateTickles();
                     break;
                 default:
                     // ignore all other keys
