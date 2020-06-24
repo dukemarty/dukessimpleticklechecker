@@ -1,12 +1,9 @@
 ﻿using SimpleTIckleChecker.Model;
-using SimpleTIckleChecker.Properties;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimpleTIckleChecker
 {
@@ -29,6 +26,11 @@ namespace SimpleTIckleChecker
         }
 
         public bool DeferElement(DateTime newTickleDate)
+        {
+            return true;
+        }
+
+        public bool RemoveElement()
         {
             return true;
         }

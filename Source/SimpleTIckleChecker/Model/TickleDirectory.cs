@@ -31,6 +31,23 @@ namespace SimpleTIckleChecker
             return true;
         }
 
+        public override bool RemoveElement()
+        {
+            var res = true;
+
+            try
+            {
+                Directory.Delete(ElementPath);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex, $"Error occured when trying to remove tickle '{Name}': {ex.Message}");
+                res = false;
+            }
+
+            return res;
+        }
+
         public override bool MoveElement(string newLocation, bool removeInfoFile = false, bool removeTickleDatePrefix = true)
         {
             throw new NotImplementedException();

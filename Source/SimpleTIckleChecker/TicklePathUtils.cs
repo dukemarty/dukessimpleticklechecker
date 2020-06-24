@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace SimpleTIckleChecker
 {
+    /// <summary>
+    /// Utility methods for editing tickle pathes.
+    /// </summary>
     public static class TicklePathUtils
     {
         #region Constants
@@ -16,6 +15,13 @@ namespace SimpleTIckleChecker
         #endregion Constants
 
         #region Public interface
+
+        /// <summary>
+        /// Replace tickle date (in the "standard" format) in a path with a new date.
+        /// </summary>
+        /// <param name="path">original path with old date</param>
+        /// <param name="newDate">new date to replace</param>
+        /// <returns>copy of the original string with the replaced date</returns>
         public static string ReplaceTickleDate(this string path, DateTime newDate)
         {
             var basePath = Path.GetDirectoryName(path);

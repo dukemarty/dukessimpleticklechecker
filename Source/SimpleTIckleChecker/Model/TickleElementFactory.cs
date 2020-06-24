@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace SimpleTIckleChecker.Model
 {
+    /// <summary>
+    /// Factory class for constructing tickle elements, depending on the required type.
+    /// </summary>
     public class TickleElementFactory
     {
         #region Constants
