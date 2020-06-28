@@ -33,7 +33,6 @@ namespace SimpleTIckleChecker
             };
 
             PreviewKeyDown += HandleEscapeKey;
-            PreviewKeyDown += HandleEnterKey;
             PreviewKeyDown += HandleActionKeys;
 
             Loaded += (sender, e) => MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
@@ -45,32 +44,6 @@ namespace SimpleTIckleChecker
             {
                 Close();
             }
-        }
-
-        private void HandleEnterKey(object sender, KeyEventArgs e)
-        {
-            //if (e.Key == Key.Enter || e.Key == Key.Return)
-            //{
-            //    object focusObj = FocusManager.GetFocusedElement(this);
-            //    if (focusObj != null && focusObj is TextBox)
-            //    {
-            //        var binding = (focusObj as TextBox).GetBindingExpression(TextBox.TextProperty);
-
-            //        if (binding != null)
-            //        {
-            //            binding.UpdateSource();
-            //        }
-            //    }
-
-            //    if (vm.InstallNewProject())
-            //    {
-            //        Close();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Template could not be installed with the given parameters.", "Error", MessageBoxButton.OK);
-            //    }
-            //}
         }
 
         private void HandleActionKeys(object sender, KeyEventArgs e)
@@ -94,7 +67,7 @@ namespace SimpleTIckleChecker
                     break;
                 case Key.M:
                     if (ActiveTicklesList.SelectedIndex == -1) { return; }
-                    MessageBox.Show("'M' pressed.", "Information", MessageBoxButton.OK);
+                    (ActiveTicklesList.SelectedItem as TickleElementViewModel).MoveElement(this);
                     break;
                 case Key.D:
                     if (ActiveTicklesList.SelectedIndex == -1) { return; }

@@ -21,8 +21,11 @@ namespace SimpleTIckleChecker
 
         public bool HasInfoFile => m_element.HasInfoFile;
 
-        public ICommand OpenElementCommand { get; set; }
-        public ICommand OpenDescriptionCommand { get; set; }
+        public ICommand OpenElementCommand => new DelegateCommand(OpenElement);
+        public ICommand OpenDescriptionCommand => new DelegateCommand(OpenDescription);
+        public ICommand MoveElementCommand => new DelegateCommand(MoveElementAction);
+        public ICommand DeferElementCommand => new DelegateCommand(DeferElementAction);
+        public ICommand RemoveElementCommand => new DelegateCommand(RemoveElementAction);
 
         #endregion Properties
 
@@ -33,14 +36,27 @@ namespace SimpleTIckleChecker
             m_element = element;
         }
 
-        public void OpenDescription()
+        public void OpenDescription(object o = null)
         {
             m_element.OpenInformation();
         }
 
-        public void OpenElement()
+        public void OpenElement(object o = null)
         {
             m_element.OpenElement();
+        }
+
+        public bool MoveElement(Window owner)
+        {
+
+            return false;
+        }
+
+        public void MoveElementAction(object o)
+        {
+            var owner = o as Window;
+
+            MoveElement(owner);
         }
 
         public bool DeferElement(Window owner)
@@ -64,6 +80,13 @@ namespace SimpleTIckleChecker
             return true;
         }
 
+        public void DeferElementAction(object o)
+        {
+            var owner = o as Window;
+
+            DeferElement(owner);
+        }
+
         public bool RemoveElement(Window owner)
         {
             var resConfirmRemove = MessageBox.Show($"Do you really want to remove tickle '{Name}' permanently?", "Confirm deleting", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
@@ -72,6 +95,13 @@ namespace SimpleTIckleChecker
             m_element.RemoveElement();
 
             return true;
+        }
+
+        public void RemoveElementAction(object o)
+        {
+            var owner = o as Window;
+
+            RemoveElement(owner);
         }
         #endregion Public interface
 

@@ -1,17 +1,7 @@
 ﻿using SimpleTIckleChecker.Properties;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace SimpleTIckleChecker.UI
 {
@@ -21,7 +11,6 @@ namespace SimpleTIckleChecker.UI
     public partial class TickleDateSelection : Window
     {
         public string ElementName { get; set; }
-        public string ChosenTickleDateString { get; set; }
         public DateTime ChosenTickleDate { get; set; }
 
         public TickleDateSelection(string element, string oldTickleDate)
@@ -29,7 +18,6 @@ namespace SimpleTIckleChecker.UI
             InitializeComponent();
 
             ElementName = element;
-            ChosenTickleDateString = oldTickleDate;
             ChosenTickleDate = DateTime.Parse(oldTickleDate);
 
             DataContext = new

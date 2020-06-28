@@ -17,6 +17,7 @@
     WindowStyle="None"
     mc:Ignorable="d">
     <Window.Resources>
+        <!--
         <local2:ColorStringConverter x:Key="Color2String" />
         <local2:BoolVisibilityConverter x:Key="Bool2VisibilityHidden" />
         <local2:ElementTypeSymbolConverter x:Key="ElementType2Symbol" />
@@ -65,6 +66,12 @@
             <Setter Property="Margin" Value="4,2,4,2" />
             <Setter Property="Width" Value="20" />
         </Style>
+        -->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Resources/DukeStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
